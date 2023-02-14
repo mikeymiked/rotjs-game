@@ -78,7 +78,8 @@ class Player {
         }
 
         this.move = function (xOffset, yOffset) {
-            if (this.game.map[`${this.x + xOffset},${this.y + yOffset}`][0].type !== 'wall') {
+            // if (this.game.map[`${this.x + xOffset},${this.y + yOffset}`][0].type !== 'wall') {
+            if (this.game.map[`${this.x + xOffset},${this.y + yOffset}`].filter(e => e.type == 'wall').length <= 0) {
                 let key = `${this.x},${this.y}`;
                 this.game.map[key].splice(this.game.map[key].indexOf(this), 1);
                 this.x += xOffset;
